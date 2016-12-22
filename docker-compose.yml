@@ -6,11 +6,11 @@ services:
       - "8080:8080"
     links:
       - "redis:redis-server"
-    network:
+    networks:
       - dubbo-net
   redis:
     image: redis
-    network:
+    networks:
       - dubbo-net
 networks:
   dubbo-net:
