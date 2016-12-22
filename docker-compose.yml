@@ -1,0 +1,17 @@
+version: '2'
+services:
+  dubbo:
+    image: registry.cn-hangzhou.aliyuncs.com/c3t3m3/docker-dubbo
+    ports:
+      - "8080:8080"
+    links:
+      - "redis:redis-server"
+    network:
+      - dubbo-net
+  redis:
+    image: redis
+    network:
+      - dubbo-net
+networks:
+  dubbo-net:
+    driver: bridge
